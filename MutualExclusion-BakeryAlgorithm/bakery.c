@@ -56,8 +56,7 @@ int main(int argc, char* argv[])
 	if (getThreadCount(argc, argv) != -1) // Argument validation...
 	{
 		// Dynamically allocate our arrays & initialize globals...
-		
-		
+				
 		resource = -1;
 		
 		tickets =  (int*) malloc(threadCount  * sizeof(int));
@@ -73,9 +72,11 @@ int main(int argc, char* argv[])
 		
 		pthread_t threads[threadCount];
 		
+		// for loop here passes all our created threads to the defined 'thdFunction'...
+		
 		for ( int i = 0 ; i < threadCount ; i++ )
 		{
-			//printf("Creating thread number %d...\n" , i + 1);
+			
 			pthread_create(&threads[i],NULL, &thdFunction, (void*)((long)i));
 			
 		}
@@ -85,7 +86,7 @@ int main(int argc, char* argv[])
 		
 		for ( int i = 0 ; i < threadCount ; i++ )
 		{
-			//printf("Thread %d is currently in pthread_join loop...\n" , (i + 1));
+		
 			pthread_join(threads[i] , NULL);
 		}
 		
@@ -93,7 +94,7 @@ int main(int argc, char* argv[])
 		
 		 // free our memory...
 		
-		 free(entering);	// freeing the memory yeilds undefined behavior
+		 free(entering);	
 		 free(tickets);
 		
 	}
