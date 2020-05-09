@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
+
 
 #define LIST_SIZE 10
 
@@ -20,9 +22,16 @@ void addToIndex(node_t *head, int index , int nodeValue);
 void deleteFromIndex(node_t *head, int index);
 void appendList(node_t **head, int value);
 void printList(node_t *head);
+node_t *removeFront(node_t *head);
+
+
+
+
+bool foundInList(node_t *head, int value);
+
+node_t *reverse(node_t *head);
 
 int listLength(node_t *head);
-
 
 int main()
 {
@@ -35,24 +44,18 @@ int main()
 	
 	for ( int i = 0 ; i < LIST_SIZE ; i++)
 	{
-		appendList(&head,i);
+		appendList(&head,rand() % 100);
 		
 	}
-	 printList(head);
-	printf("This is the length of your list: %i\n" , listLength(head));
-	 deleteFromIndex(head, 8);
-	 
-	
-	 printList(head);
-	 printf("This is the length of your list: %i\n" , listLength(head));
-	
-	 addToIndex(head, 1, 100);
-	 
-	 printList(head);
 	
 	
-	 printf("This is the length of your list: %i\n" , listLength(head));
+	printList(head);
 	
+	head = removeFront(head);
+	head = removeFront(head);
+	printList(head);
+	
+	//printList(reverse(head));
 	
 	return 0;
 }
@@ -67,6 +70,42 @@ node_t *makeNode(int value)
 	return newNode;
 	
 }
+node_t *removeFront(node_t *head)
+{
+	node_t *newHead = head;
+	
+	
+	newHead = newHead->next;
+	head = NULL;
+	
+	free(head);
+	return newHead;
+	
+	
+}
+node_t *reverse(node_t *head)
+{
+	
+	node_t *next;
+	node_t *prev =  NULL;
+	node_t *current = head;
+	
+	// traversal step...
+	while ( current != NULL )
+	{
+		next = current->next;
+		current->next = prev;  // linked backwards to prev node...
+		prev = current;
+		current = next;
+	}
+	
+	
+	head = prev;
+	
+	return head;	
+	
+}
+	
 void addToIndex(node_t *head, int index , int nodeValue)
 {
 	
@@ -138,7 +177,27 @@ void appendList(node_t **head, int value)
 	// once we reach the end we will link the new node to the end of list...
 	traversal->next = newNode;
 }
-
+bool foundInList(node_t *head, int value)
+{
+	bool found = false;
+	
+	node_t *traversal = head;
+	
+	while(traversal->next != NULL)
+	{
+		if(traversal->value == value)
+		{
+			found = true;
+		}
+		
+		traversal = traversal->next;
+	}
+	
+	
+	return found;	
+	
+	
+}
 int listLength(node_t *head)
 {
 	int length = 0;
