@@ -1,10 +1,25 @@
+/*
+*
+*	@author - Christopher Lewis
+*
+*
+*	Just some linked list practice, nothing super special, gotta keep skills up in quarentine.
+*
+*
+*
+*/
+
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
 
 
-#define LIST_SIZE 10
+#define LIST_SIZE 50
 
 struct node
 {
@@ -55,7 +70,7 @@ int main()
 	head = removeFront(head);
 	printList(head);
 	
-	//printList(reverse(head));
+	printList(reverse(head));
 	
 	return 0;
 }
@@ -216,7 +231,7 @@ int listLength(node_t *head)
 }
 void printList(node_t *head)
 {
-	
+	int  counter = 0;
 	if (head == NULL)
 	{
 		return;
@@ -228,13 +243,17 @@ void printList(node_t *head)
 	
 	
 	while (temp != NULL)
-	{
-		
-		printf("%d-->" , temp->value);
-		
+	{	
+		printf("%d-> " , temp->value);
+		if (counter == 10)
+		{
+			printf("\n");
+			counter = 0;
+		}
+
 		temp = temp->next;
-		
+		counter++;
 	}
-	printf("NULL\n");
+	printf("NULL\n\n\n");
 	
 }
