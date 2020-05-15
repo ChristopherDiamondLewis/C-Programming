@@ -12,6 +12,9 @@
 #include <string.h>
 
 
+#define EXTENSION ".txt"
+
+
 int checkArgs(int argc, char *argv[]);
 void printUsage();
 
@@ -23,8 +26,9 @@ int main(int argc,  char* argv[])
     {
         printf("This is the file name you want to write to %s\n" , argv[1]);
 
+        char *fileName = strcat(argv[1],EXTENSION);
 
-        FILE *outFile = fopen(argv[1] , "w");
+        FILE *outFile = fopen( fileName , "w");
 
         fputs("This should work\n", outFile);
 
@@ -57,24 +61,8 @@ int checkArgs(int argc, char *argv[])
 
     if ( argc == 2 )
     {
-        unsigned int ext = strlen(argv[1]) - 4;
-        
-    
-        if ( argv[1][ext]  == '.' )
-        {
-            if (argv[1][ext + 1] == 't')
-            {
-                 if (argv[1][ext + 2] == 'x')
-                {
-                    if (argv[1][ext + 3] == 't')
-                    {
-                        fileFlag = 1;
-                    }
-                }
+        fileFlag = 1;
 
-            }
-
-        }
     }
     
     return fileFlag;
