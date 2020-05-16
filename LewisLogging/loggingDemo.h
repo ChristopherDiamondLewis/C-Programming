@@ -26,7 +26,6 @@ class LogMessage : public std::ostringstream
         void printLogMessage();
     private:
         Severity priv_severity;
-
         const char *priv_funcName;
         int priv_lineNumber;
         time_t currentTime = time(NULL);
@@ -35,11 +34,19 @@ class LogMessage : public std::ostringstream
 
 };
 
+// Logging Macros...
+
 #define LOG_TRACE LogMessage(TRACE ,__FUNCTION__,__LINE__)
 #define LOG_DEBUG LogMessage(DEBUG ,__FUNCTION__,__LINE__)
 #define LOG_INFO  LogMessage(INFO,__FUNCTION__, __LINE__)
+#define LOG_WARN  LogMessage(INFO,__FUNCTION__, __LINE__)
+#define LOG_ERROR  LogMessage(INFO,__FUNCTION__, __LINE__)
 #define LOG_FATAL LogMessage(FATAL ,__FUNCTION__,__LINE__)
+
 #define LOG(severity) LOG_##severity
+
+#define NAME_OF(v) #v
+
 
 // ================= logging.cpp stuff ===================
 
@@ -66,6 +73,7 @@ LogMessage::~LogMessage()
         fprintf(stderr, "%s", "Program Ran Into Fatal Error\n");
         exit(0);
     }
+    
     printLogMessage();
     
 }

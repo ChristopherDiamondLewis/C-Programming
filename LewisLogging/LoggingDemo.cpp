@@ -11,30 +11,97 @@
 
 #include <iostream>
 #include <ctime>
+
 #include <unistd.h>
 #include "loggingDemo.h"
 
-int menu();
+
+// Logging Testing Functions...
+
+int logMenu();
+void logDemo();
+void randomFunc1();
+void randomFunc2(int &randVar);
+
 
 int main()
 {
+    int logLevel;
+
+    while(1)
+    {
+        
+        logLevel = logMenu();
+        
+        switch(logLevel)
+        {
+
+            case TRACE: randomFunc1(); break;
+            case DEBUG: LOG(DEBUG);    break;
+            case INFO:  LOG(INFO);      break;
+            case WARN:  LOG(WARN);      break;
+            case ERROR: LOG(ERROR);    break;
+            case FATAL: LOG(FATAL);    break;
 
 
-    LOG(INFO) << "this is an info message\n";
-    LOG(FATAL);
-    LOG(TRACE);
-   
+            default: logDemo(); break;
+
+
+        }
+
+
+    }
+    
 
 }
-int menu()
+int  logMenu()
 {
-    int loggingLevel = 0;
+
+    using std::cin;
+
+    int logLevel;
 
     printf("Choose your logging level\n");
+    printf("TRACE: 0\n");
+    printf("DEBUG: 1\n");
+    printf("INFO:  2\n");
+    printf("WARN:  3\n");
+    printf("ERROR: 4\n");
+    printf("FATAL: 5\n");
+    printf("DEMO/ALL:  6\n");
+
+    cin >> logLevel;
+    
+    return logLevel;
 
 
-
-    return loggingLevel;
 
 }
+void logDemo()
+{
 
+
+    LOG(TRACE);
+    LOG(TRACE);
+    LOG(FATAL);
+
+
+
+}
+void randomFunc1()
+{
+    int randVar = rand() % 1000;
+
+    LOG(TRACE) << NAME_OF(randVar) << " = " << randVar;
+
+    randomFunc2(randVar);
+
+}
+void randomFunc2(int &randVar)
+{
+    randVar *= 23;
+
+
+    LOG(TRACE) << NAME_OF(randVar) << " = " << randVar;
+
+}
