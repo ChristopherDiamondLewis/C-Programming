@@ -28,6 +28,7 @@ class LogMessage : public std::ostringstream
         Severity priv_severity;
         const char *priv_funcName;
         int priv_lineNumber;
+        std::string priv_message;
         time_t currentTime = time(NULL);
 
     
@@ -40,7 +41,7 @@ class LogMessage : public std::ostringstream
 #define LOG_DEBUG LogMessage(DEBUG ,__FUNCTION__,__LINE__)
 #define LOG_INFO  LogMessage(INFO,__FUNCTION__, __LINE__)
 #define LOG_WARN  LogMessage(INFO,__FUNCTION__, __LINE__)
-#define LOG_ERROR  LogMessage(INFO,__FUNCTION__, __LINE__)
+#define LOG_ERROR LogMessage(INFO,__FUNCTION__, __LINE__)
 #define LOG_FATAL LogMessage(FATAL ,__FUNCTION__,__LINE__)
 
 #define LOG(severity) LOG_##severity
@@ -52,28 +53,34 @@ class LogMessage : public std::ostringstream
 
 LogMessage::LogMessage(Severity severity, const  char *funcName, const int lineNumber)
 {
-    priv_severity = severity;
-    priv_funcName = funcName;
+    priv_severity   = severity;
+    priv_funcName   = funcName;
     priv_lineNumber = lineNumber;
-    
-
-
 }
 void LogMessage::printLogMessage()
 {
 
-    fprintf(stderr, "%s\t%s \n\tLine: %i \n\tFunction: %s\n\t%s\n\n" , asctime(localtime(&currentTime)) , severityNames[priv_severity] , priv_lineNumber, priv_funcName, str().c_str());
+    fprintf(stderr, "%s\t\tLine: %i \n\tFunction: %s\n\t%s\n\n" , asctime(localtime(&currentTime)) ,                                                                         
+                                                                       priv_lineNumber, priv_funcName, 
+                                                                       priv_message.c_str());
 }
 
 LogMessage::~LogMessage()
 {
-    if( priv_severity ==  FATAL )
+    switch(priv_severity)
     {
-        printLogMessage();
-        fprintf(stderr, "%s", "Program Ran Into Fatal Error\n");
-        exit(0);
+            case TRACE: priv_message = "This is a TRACE message\n";     break;
+            case DEBUG: priv_message = "This is a DEBUG message\n";    break;
+            case INFO:  priv_message = "This is a INFO  message\n";     break;
+            case WARN:  priv_message = "This is a WARN  message\n";     break;
+            case ERROR: priv_message = "This is a ERROR message\n";     break;
+            case FATAL: priv_message = "This is a FATAL message\n";     break;
+
+
+
     }
-    
+
     printLogMessage();
     
 }
+

@@ -5,6 +5,8 @@
 *   @compile -  clang++ LoggingDemo.cpp -o Logger
 *
 *
+*   @references - 
+*
 *
 *
 */
@@ -20,9 +22,6 @@
 
 int logMenu();
 void logDemo();
-void randomFunc1();
-void randomFunc2(int &randVar);
-
 
 int main()
 {
@@ -36,12 +35,12 @@ int main()
         switch(logLevel)
         {
 
-            case TRACE: randomFunc1(); break;
-            case DEBUG: LOG(DEBUG);    break;
+            case TRACE: LOG(TRACE);     break;
+            case DEBUG: LOG(DEBUG);     break;
             case INFO:  LOG(INFO);      break;
             case WARN:  LOG(WARN);      break;
-            case ERROR: LOG(ERROR);    break;
-            case FATAL: LOG(FATAL);    break;
+            case ERROR: LOG(ERROR);     break;
+            case FATAL: LOG(FATAL);     break;
 
 
             default: logDemo(); break;
@@ -86,22 +85,5 @@ void logDemo()
     LOG(FATAL);
 
 
-
-}
-void randomFunc1()
-{
-    int randVar = rand() % 1000;
-
-    LOG(TRACE) << NAME_OF(randVar) << " = " << randVar;
-
-    randomFunc2(randVar);
-
-}
-void randomFunc2(int &randVar)
-{
-    randVar *= 23;
-
-
-    LOG(TRACE) << NAME_OF(randVar) << " = " << randVar;
 
 }
