@@ -37,7 +37,6 @@ class Logger
         void warn (const char* message);
         void error(const char* message);
         void fatal(const char* message);
-        void close();
 
     private:
         Severity priv_severityLevel;
