@@ -1,3 +1,15 @@
+/*
+*
+*   @author - Christopher Lewis
+*
+*   @compile -  clang++ LoggingDemo.cpp -o Logger
+*
+*
+*   
+*
+*
+*
+*/
 
 #ifndef LOGGER_H
 #define LOGGER_H
@@ -15,6 +27,7 @@ class Logger
     public:
         Logger();
         Logger(const char* fileName);
+        ~Logger();
 
         void setLevel(Severity severity);
         void trace(const char* message);
@@ -27,7 +40,7 @@ class Logger
 
     private:
         Severity priv_severityLevel;
-        FILE *priv_FilePtr;
+        FILE *priv_FilePtr = NULL;
         time_t priv_currentTime = time(NULL);
 };  // end of Logger class
 

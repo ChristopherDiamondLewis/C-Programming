@@ -1,4 +1,15 @@
-
+/*
+*
+*   @author - Christopher Lewis
+*
+*   
+*
+*
+*   
+*
+*
+*
+*/
 #include "Logger.h"
 
 
@@ -12,6 +23,10 @@ Logger::Logger()
 {
     priv_severityLevel = OFF;
     priv_FilePtr       = stderr;
+}
+Logger::~Logger()
+{
+    close();
 }
 Logger::Logger(const char* fileName)
 {
@@ -78,6 +93,5 @@ void Logger::close()
 {
 
     fclose(priv_FilePtr);
-
-
+    priv_FilePtr = NULL;
 }

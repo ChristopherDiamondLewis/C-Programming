@@ -1,2 +1,0 @@
-Sun May 17 15:00:20 2020
-	This is a FATAL message!
