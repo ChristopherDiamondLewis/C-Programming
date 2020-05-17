@@ -10,8 +10,9 @@
 *
 *
 */
+#include <cstdio>
 #include "Logger.h"
-#include <stdio.h>
+
 
 
 Logger::Logger()
