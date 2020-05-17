@@ -1,0 +1,22 @@
+Sun May 17 15:58:53 2020
+	This is a TRACE message!
+Sun May 17 15:58:53 2020
+	This is a DEBUG message!
+Sun May 17 15:58:53 2020
+	This is a FATAL message!
+Sun May 17 15:58:53 2020
+	This is a INFO message!
+Sun May 17 15:58:53 2020
+	This is a  WARN message!
+Sun May 17 15:58:53 2020
+	This is a ERROR message!
+Sun May 17 15:58:53 2020
+	This is a FATAL message!
+Sun May 17 15:58:53 2020
+	This is a FATAL message!
+Sun May 17 15:58:53 2020
+	This is a INFO message!
+Sun May 17 15:58:53 2020
+	This is a  WARN message!
+Sun May 17 15:58:53 2020
+	This is a ERROR message!
