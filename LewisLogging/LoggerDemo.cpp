@@ -18,9 +18,9 @@
 int main()
 {
     
-    Logger myLogger;
+    Logger myLogger("Loggerout.txt");
 
-    myLogger.setLevel(INFO);
+    myLogger.setLevel(TRACE);
 
     myLogger.trace("This is a TRACE message!");
     myLogger.debug("This is a DEBUG message!");

@@ -22,7 +22,8 @@ Logger::Logger()
 }
 Logger::~Logger()
 {
-    close();
+    fclose(priv_FilePtr);
+    priv_FilePtr = nullptr;
 }
 Logger::Logger(const char* fileName)
 {
@@ -87,10 +88,4 @@ void Logger::fatal(const char* message)
     }
     
     
-}
-void Logger::close()
-{
-
-    fclose(priv_FilePtr);
-    priv_FilePtr = nullptr;
 }
