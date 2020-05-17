@@ -11,12 +11,7 @@
 *
 */
 #include "Logger.h"
-
-
 #include <stdio.h>
-#include <fstream>
-
-
 
 
 Logger::Logger()
@@ -86,12 +81,15 @@ void Logger::error(const char* message)
 void Logger::fatal(const char* message)
 {
     if(priv_severityLevel <= FATAL)
-    fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&priv_currentTime)) , message);
+    {
+        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&priv_currentTime)) , message);
+    }
+    
     
 }
 void Logger::close()
 {
 
     fclose(priv_FilePtr);
-    priv_FilePtr = NULL;
+    priv_FilePtr = nullptr;
 }

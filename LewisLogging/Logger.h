@@ -13,7 +13,8 @@
 
 #ifndef LOGGER_H
 #define LOGGER_H
-#include <fstream>
+
+#include <cstdio>
 #include <ctime>
 
 enum Severity 
@@ -27,21 +28,21 @@ class Logger
     public:
         Logger();
         Logger(const char* fileName);
-        ~Logger();
+        virtual ~Logger();
 
         void setLevel(Severity severity);
         void trace(const char* message);
         void debug(const char* message);
-        void info(const char* message);
-        void warn(const char* message);;
+        void info (const char* message);
+        void warn (const char* message);
         void error(const char* message);
         void fatal(const char* message);
         void close();
 
     private:
         Severity priv_severityLevel;
-        FILE *priv_FilePtr = NULL;
-        time_t priv_currentTime = time(NULL);
+        FILE *priv_FilePtr = nullptr;
+        time_t priv_currentTime = time(nullptr);
 };  // end of Logger class
 
 #endif
