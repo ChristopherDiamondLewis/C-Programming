@@ -1,5 +1,5 @@
 /*
-*   @author - Christopher Lewis
+*   @author  - Christopher Lewis
 *   @Created - 5/17/2020
 *   
 *
@@ -64,10 +64,6 @@ int main()
 
     demo(myLoggerFile);
     demo(myLoggerTerminal);
-
-
-    
-
 
     return 0;
 }
