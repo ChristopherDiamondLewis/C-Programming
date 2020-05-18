@@ -7,7 +7,7 @@
 *   LoggerDemo meant to show the different levels the logger should be able to write to
 *       as well as show the loggers ability to write to a file or the terminal.
 *
-*   @compile - clang++ -Wall -Wextra -Wpedantic  Logger.cpp LoggerDemo.cpp -o LoggerDemo
+*   @compile - clang++ -std=c++17 -Wall -Wextra -Wpedantic Logger.cpp LoggerDemo.cpp -o LoggerDemo
 *
 *   @notes   - It easier to use the provided Makefile to compile & clean up if running multiple times.
 *
