@@ -9,6 +9,8 @@
 *   @compile - clang++ -std=c++17 -Wall -Wextra -Wpedantic Logger.cpp LoggerDemo.cpp -o LoggerDemo
 *
 *   @notes   - It easier to use the provided Makefile to compile & clean up if running multiple times.
+*               the commands being 'make' to compile all object files into an executable & 'make clean'
+*               which will delete all object files in currenty directory.                   
 *
 */
 
@@ -35,30 +37,36 @@ int main()
     Logger myLoggerFile("LoggerOut.txt");   // Any log messages used by 'myLoggerFile' are written to the specified '.txt' file.
     Logger myLoggerTerminal;                // Any log messages used by 'myLoggerTerminal' are written to terminal/console.
 
-    myLoggerTerminal.setLevel(FATAL);
+
+     // Test setting log levels & writing to the terminal/console.
+    myLoggerTerminal.setLevel(TRACE);
+    demo(myLoggerTerminal);
+    myLoggerTerminal.setLevel(DEBUG);
     demo(myLoggerTerminal);
     myLoggerTerminal.setLevel(INFO);
     demo(myLoggerTerminal);
-    myLoggerTerminal.setLevel(TRACE);
+    myLoggerTerminal.setLevel(WARN);
+    demo(myLoggerTerminal);
+    myLoggerTerminal.setLevel(ERROR);
     demo(myLoggerTerminal);
     myLoggerTerminal.setLevel(FATAL);
     demo(myLoggerTerminal);
 
-    myLoggerFile.setLevel(TRACE);
+    // Test setting log levels & writing to a file.
+    myLoggerFile.setLevel(TRACE);       
     demo(myLoggerFile);
-    myLoggerFile.setLevel(FATAL);
+    myLoggerFile.setLevel(DEBUG);
     demo(myLoggerFile);
     myLoggerFile.setLevel(INFO);
     demo(myLoggerFile);
-    myLoggerFile.setLevel(TRACE);
-    demo(myLoggerFile);
-    myLoggerFile.setLevel(FATAL);
-    demo(myLoggerFile);
     myLoggerFile.setLevel(WARN);
     demo(myLoggerFile);
+    myLoggerFile.setLevel(ERROR);
+    demo(myLoggerFile);
     myLoggerFile.setLevel(FATAL);
     demo(myLoggerFile);
-
+   
+    // Test turning off the logging for both writing to file & console/terminal.
     myLoggerFile.setLevel(OFF);
     myLoggerTerminal.setLevel(OFF);
 
