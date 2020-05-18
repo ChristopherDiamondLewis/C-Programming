@@ -3,8 +3,9 @@
 *   @author - Christopher Lewis
 *
 *       This is the header file for the Logger class.
-*       It robustly explains each functions purpose, their inputs and
-*       how they should operate.
+*       It robustly explains the clases functions/variables, their inputs and
+*       how they should operate; as well as te enumarated datatypes that relate to 
+*       the Logger class.
 *
 *   Example of Output:
 *       Logging Level: {Log_Level}
@@ -100,11 +101,13 @@ class Logger
 *       Destructor will close our output stream as well
 *           as set the FILE pointer to null.
 *       Both steps are necessary to ensure no danlging pointers
-*           because closing the file does not change 
-*           what the FILE pointer was pointing to.
+*           because closing the file does not change what 
+*           the FILE pointer was pointing to.
 *           
+*       The desctructor is made virtual to gauarantee the object
+*               will be dstructed properly.
 *
-*       The desctructor is made virtual because TODO.
+*       @reference - https://www.geeksforgeeks.org/virtual-destructor/
 *
 *
 *******************************************************/
@@ -175,6 +178,6 @@ class Logger
 
         const char* severityNames[NUM_SEVERITIES] = {"TRACE", "DEBUG" , "INFO", "WARN", "ERROR", "FATAL", "OFF"};
 
-};  // end of Logger class
+};  // end of Logger class definition.
 
 #endif
