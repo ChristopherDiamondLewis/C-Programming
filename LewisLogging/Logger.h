@@ -24,7 +24,7 @@
 
 /*******************************************************************************
 *
-*       Enumerated datatypes that represent the different logging or severity
+*       Enumerated datatypes that represent the different logging/severity
 *           levels. Used by the caller for setting a log level to determine
 *           which log messages are displayed.
 *       
