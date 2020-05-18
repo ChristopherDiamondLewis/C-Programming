@@ -124,7 +124,7 @@ class Logger
 *
 *       Also displays a message to output stream showing which
 *           logging level the logger has been set to, making it
-*           easier to visually parse output.
+*           easier to visually parse the output.
 *
 *******************************************************/
 
