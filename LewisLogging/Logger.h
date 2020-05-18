@@ -17,15 +17,16 @@
 #include <cstdio>
 #include <ctime>
 
+
 enum Severity 
 {
-   TRACE,DEBUG,INFO,WARN,ERROR,FATAL, OFF
+            TRACE,DEBUG,INFO,WARN,ERROR,FATAL,OFF,NUM_SEVERITIES
 };
 
 class Logger
 {
 
-    public:
+public:
         Logger();
         Logger(const char* fileName);
         virtual ~Logger();
@@ -37,8 +38,11 @@ class Logger
         void warn (const char* message);
         void error(const char* message);
         void fatal(const char* message);
+    
+        const char* severitys[NUM_SEVERITIES] = {"TRACE", "DEBUG" , "INFO", "WARN", "ERROR", "FATAL", "OFF"};
 
-    private:
+
+private:
         Severity priv_severityLevel;
         FILE *priv_FilePtr = nullptr;
         time_t priv_currentTime = time(nullptr);

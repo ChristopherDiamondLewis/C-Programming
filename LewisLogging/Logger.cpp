@@ -35,6 +35,7 @@ void Logger::setLevel(Severity severity)
 {
 
     priv_severityLevel = severity;
+    fprintf(priv_FilePtr,"Logging Level: %s\n", severitys[priv_severityLevel]);
 
 }
 void Logger::trace(const char* message)
@@ -43,7 +44,7 @@ void Logger::trace(const char* message)
     if( priv_severityLevel <= TRACE )
     {
         time_t currTime = time(nullptr);
-        fprintf(priv_FilePtr,"%s\t%s\n", asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n", asctime(localtime(&currTime)), message);
     }
     
 
@@ -53,7 +54,7 @@ void Logger::debug(const char* message)
     if(priv_severityLevel <= DEBUG)
     {
         time_t currTime = time(nullptr);
-        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
     
 }
@@ -62,7 +63,7 @@ void Logger::info(const char* message)
     if (priv_severityLevel <= INFO)
     {
         time_t currTime = time(nullptr);
-        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
     
     
@@ -72,7 +73,7 @@ void Logger::warn(const char* message)
     if (priv_severityLevel <= WARN)
     {
         time_t currTime = time(nullptr);
-        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
     
     
@@ -83,7 +84,7 @@ void Logger::error(const char* message)
     {
         time_t currTime = time(nullptr);
 
-        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
     
 }
@@ -92,7 +93,7 @@ void Logger::fatal(const char* message)
     if(priv_severityLevel <= FATAL)
     {
         time_t currTime = time(nullptr);
-        fprintf(priv_FilePtr,"%s\t%s\n",asctime(localtime(&currTime)), message);
+        fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
     
     
