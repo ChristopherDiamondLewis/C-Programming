@@ -9,8 +9,6 @@
 
 #include "Logger.h"
 
-#include <cstdio>
-
 Logger::Logger()
 {
     priv_severityLevel = OFF;

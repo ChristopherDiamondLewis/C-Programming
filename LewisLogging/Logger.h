@@ -6,6 +6,11 @@
 *       It robustly explains each functions purpose, their inputs and
 *       how they should operate.
 *
+*   Example of Output:
+*       Logging Level
+*               DAY MON DATE HOUR:MIN:SEC YEAR   
+*                       "This is a(n) {LogLevel} message!"
+*
 *       
 *   @reference(s) -https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
 *
@@ -13,9 +18,6 @@
 *
 *
 */
-
-
-
 
 #ifndef LOGGER_H
 #define LOGGER_H
@@ -59,8 +61,8 @@ class Logger
 *       File pointer used to determine which output stream
 *           the log messages will be written to.
 *       A FILE pointer can point to stderr or an
-*       open file depending on how the caller declares 
-*       the logger object. 
+*           open file depending on how the caller declares 
+*           the logger object. 
 *
 ******************************************************/
         
@@ -72,8 +74,11 @@ class Logger
     public:
 /*******************************************************
 *       Non-parameterized constructor, will set the 
-*           severity level to 'OFF' & FILE pointer to nullptr
-*           to avoid any access to possible garbage values.
+*           severity level to 'OFF' & the FILE pointer to 
+*           'stderr' so that the output for the log messages
+*           are displayed to the 'stderr' output stream.
+*           This can be changed to be 'stdout', 'clog' or 
+*           any viable output stream.
 *
 *******************************************************/
 
@@ -128,7 +133,7 @@ class Logger
 *       
 *       Output Format To Expect:
 *           DAY MON DATE HOUR:MIN:SEC YEAR   
-*                   "This is a {LogLevel} message!"
+*                   "This is a(n) {LogLevel} message!"
 *
 *       The 'if' statments in each of the logging level's functions
 *           are used to determine if that level's message should be displayed
