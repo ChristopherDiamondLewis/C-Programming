@@ -38,7 +38,7 @@ void Logger::setLevel(Severity severity)
 //=====================================================================================
 void Logger::trace(const char* message)
 {
-    if( priv_severityLevel <= TRACE )
+    if(priv_severityLevel <= TRACE)
     {
         time_t currTime = time(nullptr);
         fprintf(priv_FilePtr,"\t%s\t\t%s\n", asctime(localtime(&currTime)), message);
@@ -53,13 +53,12 @@ void Logger::debug(const char* message)
         time_t currTime = time(nullptr);
         fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
-    
 }
 //=====================================================================================
 //=====================================================================================
 void Logger::info(const char* message)
 {
-    if (priv_severityLevel <= INFO)
+    if(priv_severityLevel <= INFO)
     {
         time_t currTime = time(nullptr);
         fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
@@ -69,7 +68,7 @@ void Logger::info(const char* message)
 //=====================================================================================
 void Logger::warn(const char* message)
 {
-    if (priv_severityLevel <= WARN)
+    if(priv_severityLevel <= WARN)
     {
         time_t currTime = time(nullptr);
         fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
