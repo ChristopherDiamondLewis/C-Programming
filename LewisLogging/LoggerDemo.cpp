@@ -14,8 +14,6 @@
 
 
 #include "Logger.h"
-#include <unistd.h>
-
 
 void demo(Logger &myLogger);
 
