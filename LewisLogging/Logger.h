@@ -12,7 +12,7 @@
 *                       "This is a(n) {LogLevel} message!"
 *
 *       
-*   @reference(s) -https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
+*   @reference(s) - https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
 *
 * 
 *
