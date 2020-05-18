@@ -1,48 +1,51 @@
 Logging Level: TRACE
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a TRACE message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a DEBUG message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an INFO message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a WARN message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an ERROR message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!
 Logging Level: FATAL
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!
 Logging Level: INFO
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an INFO message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a WARN message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an ERROR message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!
 Logging Level: TRACE
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a TRACE message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a DEBUG message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an INFO message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a WARN message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an ERROR message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!
 Logging Level: FATAL
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!
 Logging Level: WARN
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is a WARN message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
 		This is an ERROR message!
-	Sun May 17 22:01:03 2020
+	Sun May 17 22:33:14 2020
+		This is a FATAL message!
+Logging Level: FATAL
+	Sun May 17 22:33:14 2020
 		This is a FATAL message!

@@ -55,6 +55,8 @@ int main()
     demo(myLoggerFile);
     myLoggerFile.setLevel(WARN);
     demo(myLoggerFile);
+    myLoggerFile.setLevel(FATAL);
+    demo(myLoggerFile);
 
 
     
