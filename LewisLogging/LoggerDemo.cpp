@@ -1,5 +1,4 @@
 /*
-*
 *   @author - Christopher Lewis
 *   @Created - 5/17/2020
 *   
@@ -73,7 +72,7 @@ int main()
     return 0;
 }
 /*********************************************************
-*   Function used to help not bloat the main,it will take a 'Logger' variable 
+*   Function used to help not bloat the main, it will take a 'Logger' variable 
 *       by reference & call all of logging level message functions.
 *
 *   This 'demo' function help determine if the setting of logging levels is 

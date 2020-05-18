@@ -14,9 +14,6 @@
 *       
 *   @reference(s) - https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
 *
-* 
-*
-*
 */
 
 #ifndef LOGGER_H
