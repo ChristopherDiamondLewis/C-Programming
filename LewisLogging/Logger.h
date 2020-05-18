@@ -7,9 +7,9 @@
 *       how they should operate.
 *
 *   Example of Output:
-*       Logging Level
+*       Logging Level: {Log_Level}
 *               DAY MON DATE HOUR:MIN:SEC YEAR   
-*                       "This is a(n) {LogLevel} message!"
+*                       "This is a(n) {Log_Level} message!"
 *
 *       
 *   @reference(s) - https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
@@ -104,7 +104,8 @@ class Logger
 *           as set the FILE pointer to null.
 *       Both steps are necessary to ensure no danlging pointers
 *           because closing the file does not change 
-*              what the FILE pointer was pointing to.
+*           what the FILE pointer was pointing to.
+*           
 *
 *       The desctructor is made virtual because TODO.
 *
@@ -160,6 +161,7 @@ class Logger
         void warn (const char* message);
         void error(const char* message);
         void fatal(const char* message);
+        
 /*******************************************************
 *
 *       This is an array of the actual names of each logging

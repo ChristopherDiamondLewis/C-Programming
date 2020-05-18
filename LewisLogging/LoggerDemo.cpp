@@ -22,8 +22,10 @@ void demo(Logger &myLogger);
 *   Main entry point for application.
 *       Just to test the different log levels & testing if log levels
 *       are displayed or written to the desired output stream coprrectly.
+*
 *   Makes two different instances of the logger object, one with a file that log messages
-*       will be written to, and the other which will write directly to the console/terminal.       
+*       will be written to, and the other which will write directly to the console/terminal. 
+*      
 *   The logging level will change during this function to show the correct functionality of the logger.
 * 
 *   @return - function will return 0 if exectuted with no errors.
@@ -31,7 +33,7 @@ void demo(Logger &myLogger);
 int main()
 {
     
-    Logger myLoggerFile("LoggerOut.txt");   // Any log messages used by 'myLoggerFile' are written to the given .txt file.
+    Logger myLoggerFile("LoggerOut.txt");   // Any log messages used by 'myLoggerFile' are written to the specified '.txt' file.
     Logger myLoggerTerminal;                // Any log messages used by 'myLoggerTerminal' are written to terminal/console.
 
     myLoggerTerminal.setLevel(FATAL);
