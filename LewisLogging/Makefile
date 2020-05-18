@@ -1,14 +1,15 @@
 
-
+CC 	   = clang++
+CFLAGS = -Wall -Wextra -Wpedantic
 
 all: Logger.o LoggerDemo.o
-	clang++ Logger.o LoggerDemo.o -o LoggerDemo
+	$(CC) $(CFLAGS) Logger.o LoggerDemo.o -o LoggerDemo
 
 Logger.o: Logger.cpp Logger.h
-	clang++ -c Logger.cpp
+	$(CC) $(CFLAGS) -c Logger.cpp
 
 LoggerDemo.o: LoggerDemo.cpp Logger.h
-	clang++ -c LoggerDemo.cpp
+	$(CC) $(CFLAGS) -c LoggerDemo.cpp
 
 clean:
 

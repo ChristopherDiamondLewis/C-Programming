@@ -47,7 +47,7 @@ void demo(Logger &myLogger)
     myLogger.trace("This is a TRACE message!");
     myLogger.debug("This is a DEBUG message!");
     myLogger.info("This is an INFO message!");
-    myLogger.warn("This is a  WARN message!");
+    myLogger.warn("This is a WARN message!");
     myLogger.error("This is an ERROR message!");
     myLogger.fatal("This is a FATAL message!");
 
