@@ -2,14 +2,20 @@
 *
 *   @author - Christopher Lewis
 *
-*   @compile -  clang++ LoggingDemo.cpp -o Logger
+*       This is the header file for the Logger class.
+*       It robustly explains each functions purpose, their inputs and
+*       how they should operate.
 *
+*       
+*   @reference(s) -https://www.tutorialspoint.com/log4j/log4j_logging_methods.htm
 *
-*   
-*
+* 
 *
 *
 */
+
+
+
 
 #ifndef LOGGER_H
 #define LOGGER_H
@@ -17,15 +23,26 @@
 #include <cstdio>
 #include <ctime>
 
+/*******************************************************************************
+*
+*       Enumerated datatypes that represent the different logging or severity
+*           levels. Used by the caller for setting a log level to determine
+*           which log messages are displayed.
+*       
+*       NUM_SEVERITIES is to keep track of how many different logging levels
+*           there are, if another level is added or removed,then the value 
+*           of NUM_SEVERITIES will reflect that change.        
+*
+*********************************************************************************/
+    enum Severity 
+    {
+        TRACE,DEBUG,INFO,WARN,ERROR,FATAL,OFF,NUM_SEVERITIES
+    };
 
-enum Severity 
-{
-            TRACE,DEBUG,INFO,WARN,ERROR,FATAL,OFF,NUM_SEVERITIES
-};
+/*********************************************************************************/
 
 class Logger
 {
-
     private:
 /*****************************************************
 *       Enumurated datatype to represent the severity
@@ -55,7 +72,8 @@ class Logger
     public:
 /*******************************************************
 *       Non-parameterized constructor, will set the 
-*           severity level to 'OFF' & FILE pointer to nullptr.
+*           severity level to 'OFF' & FILE pointer to nullptr
+*           to avoid any access to possible garbage values.
 *
 *******************************************************/
 
@@ -65,7 +83,7 @@ class Logger
 *
 *       Parameterized constructor, will take a given filename
 *           open a text file of that name in 'WRITE_MODE' 
-            and assign it to the FILE pointer to be used as the output stream.
+*           and assign it to the FILE pointer to be used as the output stream.
 *
 *
 *******************************************************/
@@ -73,6 +91,14 @@ class Logger
         Logger(const char* fileName);
 
 /*******************************************************
+*
+*       Destructor will close our output stream as well
+*           as set the FILE pointer to null.
+*       Both steps are necessary to ensure no danlging pointers
+*           because closing the file does not change 
+*              what the FILE pointer was pointing to.
+*
+*       The desctructor is made virtual because TODO.
 *
 *
 *******************************************************/
@@ -87,6 +113,10 @@ class Logger
 *           This will determine what level of log messages
 *           are displayed by caller.
 *
+*       Also displays a message to output stream showing which
+*           logging level the logger has been set to, making it
+*           easier to visually parse output.
+*
 *******************************************************/
 
         void setLevel(Severity severity);
@@ -97,10 +127,10 @@ class Logger
 *           the log message occurred.
 *       
 *       Output Format To Expect:
-*           DAY MON DATE HOUR:MINUTE:SECOND YEAR   
+*           DAY MON DATE HOUR:MIN:SEC YEAR   
 *                   "This is a {LogLevel} message!"
 *
-*       The 'if' statments in each of the logging level's
+*       The 'if' statments in each of the logging level's functions
 *           are used to determine if that level's message should be displayed
 *           or not, due to enumerated datatypes being represented
 *           as integers starting from {0,1,2...etc}. 
@@ -124,10 +154,19 @@ class Logger
         void fatal(const char* message);
 /*******************************************************
 *
+*       This is an array of the actual names of each logging
+*           level used in the 'setLevel' function to correctly
+*           output the name of the loggers current log level.
+*       The enumerated severity/logging level will map directly to
+*           the respective string representaion of that level.
+*
+*       Example: 
+*           if the severity/logging level is TRACE, then 
+*           severityNames[TRACE] will yeild the string "TRACE".   
 *
 *******************************************************/
 
-        const char* severitys[NUM_SEVERITIES] = {"TRACE", "DEBUG" , "INFO", "WARN", "ERROR", "FATAL", "OFF"};
+        const char* severityNames[NUM_SEVERITIES] = {"TRACE", "DEBUG" , "INFO", "WARN", "ERROR", "FATAL", "OFF"};
 
 };  // end of Logger class
 

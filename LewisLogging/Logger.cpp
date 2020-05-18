@@ -34,7 +34,7 @@ Logger::Logger(const char* fileName)
 void Logger::setLevel(Severity severity)
 {
     priv_severityLevel = severity;
-    fprintf(priv_FilePtr,"Logging Level: %s\n", severitys[priv_severityLevel]);
+    fprintf(priv_FilePtr,"Logging Level: %s\n", severityNames[priv_severityLevel]);
 }
 //=====================================================================================
 //=====================================================================================
