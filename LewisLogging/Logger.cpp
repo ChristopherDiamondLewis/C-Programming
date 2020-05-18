@@ -3,11 +3,7 @@
 *   @author - Christopher Lewis
 *
 *   
-*   
-*
-*   
-*
-*
+*   This is the implemention file for the "Logger" class.
 *
 */
 

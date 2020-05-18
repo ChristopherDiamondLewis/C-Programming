@@ -26,7 +26,12 @@ enum Severity
 class Logger
 {
 
-public:
+    private:
+        Severity priv_severityLevel;
+        FILE *priv_FilePtr = nullptr;
+        
+
+    public:
         Logger();
         Logger(const char* fileName);
         virtual ~Logger();
@@ -38,14 +43,9 @@ public:
         void warn (const char* message);
         void error(const char* message);
         void fatal(const char* message);
-    
+
         const char* severitys[NUM_SEVERITIES] = {"TRACE", "DEBUG" , "INFO", "WARN", "ERROR", "FATAL", "OFF"};
 
-
-private:
-        Severity priv_severityLevel;
-        FILE *priv_FilePtr = nullptr;
-        time_t priv_currentTime = time(nullptr);
 };  // end of Logger class
 
 #endif
