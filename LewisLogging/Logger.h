@@ -33,7 +33,10 @@
 *       
 *       NUM_SEVERITIES is to keep track of how many different logging levels
 *           there are, if another level is added or removed,then the value 
-*           of NUM_SEVERITIES will reflect that change.        
+*           of NUM_SEVERITIES will reflect that change.
+*
+*       The 'OFF' severity is the default severity given to any instance of the
+*           Logger, when set to 'OFF' no log messages will be displayed.  
 *
 *********************************************************************************/
     enum Severity 

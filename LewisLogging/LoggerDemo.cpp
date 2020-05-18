@@ -15,7 +15,7 @@
 
 #include "Logger.h"
 
-// Prototype for demo function which will help test logger.
+// Prototype for demo function which will help test the logger.
 void demo(Logger &myLogger);
 
 /****************************************
@@ -55,6 +55,12 @@ int main()
     demo(myLoggerFile);
     myLoggerFile.setLevel(WARN);
     demo(myLoggerFile);
+
+    myLoggerFile.setLevel(OFF);
+    myLoggerTerminal.setLevel(OFF);
+
+    demo(myLoggerFile);
+    demo(myLoggerTerminal);
 
 
     
