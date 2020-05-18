@@ -1,6 +1,6 @@
 
 CC 	   = clang++
-CFLAGS = -Wall -Wextra -Wpedantic
+CFLAGS = -std=c++11 -Wall -Wextra -Wpedantic
 
 all: Logger.o LoggerDemo.o
 	$(CC) $(CFLAGS) Logger.o LoggerDemo.o -o LoggerDemo
