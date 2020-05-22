@@ -33,7 +33,7 @@ void demo(Logger &myLogger);
 *****************************************/
 int main()
 {
-    Logger myLoggerFile("LoggerOut.log");   // Any log messages used by 'myLoggerFile' are written to the specified '.txt' file.
+    Logger myLoggerFile("LoggerOut.log");   // Any log messages used by 'myLoggerFile' are written to the specified file.
     Logger myLoggerTerminal;                // Any log messages used by 'myLoggerTerminal' are written to terminal/console.
 
 
