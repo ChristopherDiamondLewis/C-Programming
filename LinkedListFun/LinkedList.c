@@ -1,80 +1,11 @@
-/*
-*
-*	@author - Christopher Lewis
-*
-*
-*	Just some linked list practice, nothing super special, gotta keep skills up in quarentine.
-*
-*	Testing
-*
-*/
+
+
+#include "LinkedList.h"
 
 
 
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdbool.h>
-
-
-#define LIST_SIZE 15
-
-struct node
-{
-	int value;
-	struct node *next;
-};
-
-typedef struct node node_t;
-
-
-
-node_t *makeNode(int value);
-
-void addToIndex(node_t *head, int index , int nodeValue);
-void deleteFromIndex(node_t *head, int index);
-void appendList(node_t **head, int value);
-void printList(node_t *head);
-node_t *removeFront(node_t *head);
-
-
-
-
-bool foundInList(node_t *head, int value);
-
-node_t *reverse(node_t *head);
-
-int listLength(node_t *head);
-
-int main()
-{
-
-	srand(time(NULL));
-	
-	
-	node_t *head = NULL;
-	
-	
-	for ( int i = 0 ; i < LIST_SIZE ; i++)
-	{
-		appendList(&head,rand() % 100);
-		
-	}
-	
-	
-	printList(head);
-	
-	head = removeFront(head);
-	head = removeFront(head);
-	printList(head);
-	appendList(&head,10);
-	printList(reverse(head));
-	
-	
-	return 0;
-}
 node_t *makeNode(int value)
 {	
 	node_t *newNode = malloc(sizeof(node_t));
@@ -154,20 +85,20 @@ void deleteFromIndex(node_t *head, int index)
 	
 	
 	// need two traversals to keep track of previous node and current node...
-	node_t *traverse1 = head;
-	node_t *traverse2 = traverse1;
+	node_t *current = head;
+	node_t *prev = current;
 	
-	while (traverse1->next != NULL && counter < index)
+	while (current->next != NULL && counter < index)
 	{
 		
-		traverse2 = traverse1;
-		traverse1 = traverse1->next;
+		prev = current;
+		current = current->next;
 		counter++;
 	}
 	
-	traverse2->next = traverse1->next;
+	prev->next = current->next;
 	
-	free(traverse1);
+	free(current);
 	
 	
 }
@@ -226,21 +157,19 @@ int listLength(node_t *head)
 		length++;
 		temp = temp->next;
 	}
-	
-	
+
 	return length;
-	
 }
 void printList(node_t *head)
 {
 	int  counter = 0;
+
 	if (head == NULL)
 	{
-		return;
+		return;		// if list is empty, we exit.
 	}
 	
 	node_t *temp;
-	
 	temp = head;
 	
 	
@@ -259,3 +188,4 @@ void printList(node_t *head)
 	printf("NULL\n\n\n");
 	
 }
+
