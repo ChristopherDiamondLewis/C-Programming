@@ -30,15 +30,14 @@ void demo(Logger &myLogger);
 *   The logging level will change during this function to show the correct functionality of the logger.
 * 
 *   @return - function will return 0 if exectuted with no errors.
-*/
+*****************************************/
 int main()
 {
-    
-    Logger myLoggerFile("LoggerOut.txt");   // Any log messages used by 'myLoggerFile' are written to the specified '.txt' file.
+    Logger myLoggerFile("LoggerOut.log");   // Any log messages used by 'myLoggerFile' are written to the specified '.txt' file.
     Logger myLoggerTerminal;                // Any log messages used by 'myLoggerTerminal' are written to terminal/console.
 
 
-     // Test setting log levels & writing to the terminal/console.
+    // Test setting log levels & writing to the terminal/console.
     myLoggerTerminal.setLevel(TRACE);
     demo(myLoggerTerminal);
     myLoggerTerminal.setLevel(DEBUG);
@@ -70,6 +69,7 @@ int main()
     myLoggerFile.setLevel(OFF);
     myLoggerTerminal.setLevel(OFF);
 
+    // These two calls should not show any messages if loglevel == 'OFF'.
     demo(myLoggerFile);
     demo(myLoggerTerminal);
 

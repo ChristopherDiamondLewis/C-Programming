@@ -4,7 +4,7 @@
 *
 *       This is the header file for the Logger class.
 *       It robustly explains the clases functions/variables, their inputs and
-*       how they should operate; as well as te enumarated datatypes that relate to 
+*       how they should operate; as well as te enumerated datatypes that relate to 
 *       the Logger class.
 *
 *   Example of Output:
@@ -41,7 +41,6 @@
     {
         TRACE,DEBUG,INFO,WARN,ERROR,FATAL,OFF,NUM_SEVERITIES
     };
-
 /*********************************************************************************/
 
 class Logger
@@ -91,6 +90,8 @@ class Logger
 *           open a text file of that name in 'WRITE_MODE' 
 *           and assign it to the FILE pointer to be used as the output stream.
 *
+*       If the file does not open, an error message will be sent to 
+*          'stderr' stream and the output stream will be set to 'stderr'.
 *
 *******************************************************/
 
@@ -148,8 +149,8 @@ class Logger
 *
 *       Example: 
 *           If the logging level is set to WARN, & the caller
-*               calls the 'warn' function; the logger will display the
-*               warn,error & fatal messages.
+*               calls a function with  'lower' log level, those messages
+*               will be displayed.
 *           However if the logging level is set to WARN & the caller
 *               calls the 'trace' function, the trace log message will not be 
 *               displayed.           

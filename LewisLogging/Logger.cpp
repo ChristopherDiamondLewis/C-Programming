@@ -11,12 +11,12 @@
 
 #include "Logger.h"
 
+//=====================================================================================
 Logger::Logger()
 {
     priv_severityLevel = OFF;
     priv_FilePtr       = stderr;
 }
-//=====================================================================================
 //=====================================================================================
 Logger::~Logger()
 {
@@ -24,19 +24,22 @@ Logger::~Logger()
     priv_FilePtr = nullptr;
 }
 //=====================================================================================
-//=====================================================================================
 Logger::Logger(const char* fileName)
 {
     priv_FilePtr = fopen(fileName , "w");
+
+    if(priv_FilePtr == nullptr)         
+    {
+        fprintf(stderr, "Error: File did not open, setting output to 'stderr'\n");
+        priv_FilePtr = stderr;
+    }
 }
-//=====================================================================================
 //=====================================================================================
 void Logger::setLevel(Severity severity)
 {
     priv_severityLevel = severity;
     fprintf(priv_FilePtr,"Logging Level: %s\n", severityNames[priv_severityLevel]);
 }
-//=====================================================================================
 //=====================================================================================
 void Logger::trace(const char* message)
 {
@@ -47,7 +50,6 @@ void Logger::trace(const char* message)
     }
 }
 //=====================================================================================
-//=====================================================================================
 void Logger::debug(const char* message)
 {
     if(priv_severityLevel <= DEBUG)
@@ -56,7 +58,6 @@ void Logger::debug(const char* message)
         fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
 }
-//=====================================================================================
 //=====================================================================================
 void Logger::info(const char* message)
 {
@@ -67,7 +68,6 @@ void Logger::info(const char* message)
     } 
 }
 //=====================================================================================
-//=====================================================================================
 void Logger::warn(const char* message)
 {
     if(priv_severityLevel <= WARN)
@@ -77,7 +77,6 @@ void Logger::warn(const char* message)
     } 
 }
 //=====================================================================================
-//=====================================================================================
 void Logger::error(const char* message)
 {
     if(priv_severityLevel <= ERROR)
@@ -86,7 +85,6 @@ void Logger::error(const char* message)
         fprintf(priv_FilePtr,"\t%s\t\t%s\n",asctime(localtime(&currTime)), message);
     }
 }
-//=====================================================================================
 //=====================================================================================
 void Logger::fatal(const char* message)
 {
