@@ -42,13 +42,16 @@ int main()
     person_t chris = {.name = "Christopher"};        // inline decleration.
     person_t kimmy = {.name = "Kimberly"}; 
     person_t kevin = {.name = "Kevin"}; 
+    person_t joe   = {.name = "Joeseph"};
+    person_t laura   = {.name = "Laura"};
     initTable();
     printTable();
 
     insertInTable(&chris);
     insertInTable(&kimmy);
     insertInTable(&kevin);
-    insertInTable(&chris);
+    insertInTable(&laura);
+    insertInTable(&joe);
 
     printTable();
     return 0;
@@ -73,7 +76,7 @@ bool insertInTable(person_t *personToInsert)
 
     if(hashTable[index] != NULL)
     {
-        printf("We have a collision! -> %s\a\n", personToInsert->name);
+        printf("We have a collision! -> %s: %i\a\n", personToInsert->name, index);
         return false;       // We have a collision.
     }
     else
