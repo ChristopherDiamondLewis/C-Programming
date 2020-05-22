@@ -19,7 +19,7 @@
 #include <stdbool.h>
 
 
-#define LIST_SIZE 50
+#define LIST_SIZE 15
 
 struct node
 {
@@ -69,8 +69,9 @@ int main()
 	head = removeFront(head);
 	head = removeFront(head);
 	printList(head);
-	
+	appendList(&head,10);
 	printList(reverse(head));
+	
 	
 	return 0;
 }
@@ -94,6 +95,7 @@ node_t *removeFront(node_t *head)
 	head = NULL;
 	
 	free(head);
+
 	return newHead;
 	
 	
