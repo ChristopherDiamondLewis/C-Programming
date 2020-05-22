@@ -13,6 +13,7 @@
 */
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #define TABLE_SIZE 10
 
@@ -29,22 +30,30 @@ person_t *hashTable[TABLE_SIZE];
 
 unsigned int hash (char *name);
 
-void init_table();
+bool insertInTable(person_t *personToInsert);
+
+void initTable();
 
 void printTable();
 
 int main()
 {
     
-
-
-    person_t student1;
-
-    init_table();
+    person_t chris = {.name = "Christopher"};        // inline decleration.
+    person_t kimmy = {.name = "Kimberly"}; 
+    person_t kevin = {.name = "Kevin"}; 
+    initTable();
     printTable();
 
+    insertInTable(&chris);
+    insertInTable(&kimmy);
+    insertInTable(&kevin);
+    insertInTable(&chris);
+
+    printTable();
     return 0;
 }
+//==================================================
 unsigned int hash ( char *name)
 {
     unsigned int checkSum = 0;
@@ -57,7 +66,26 @@ unsigned int hash ( char *name)
 
     return checkSum % TABLE_SIZE;
 }
-void init_table()
+//==================================================
+bool insertInTable(person_t *personToInsert)
+{
+    unsigned int index = hash(personToInsert->name);
+
+    if(hashTable[index] != NULL)
+    {
+        printf("We have a collision! -> %s\a\n", personToInsert->name);
+        return false;       // We have a collision.
+    }
+    else
+    {
+        hashTable[index] = personToInsert;
+    }
+    
+    return true;
+
+}
+//==================================================
+void initTable()
 {
     for ( int i = 0 ; i <  TABLE_SIZE ; i++ )
     {
@@ -65,9 +93,10 @@ void init_table()
 
     }
 }
+//==================================================
 void printTable()
 {
-
+    printf("START\n");
     for (int i = 0 ; i < TABLE_SIZE ; i++)
     {
         if (hashTable[i] == NULL)
@@ -81,5 +110,8 @@ void printTable()
         
     }
 
+    printf("END\n");
+
 }
+//==================================================
 
