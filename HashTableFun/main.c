@@ -36,6 +36,8 @@ void initTable();
 
 void printTable();
 
+void  lookupInTable (person_t *personToLookUp);
+
 int main()
 {
     
@@ -43,7 +45,8 @@ int main()
     person_t kimmy = {.name = "Kimberly"}; 
     person_t kevin = {.name = "Kevin"}; 
     person_t joe   = {.name = "Joeseph"};
-    person_t laura   = {.name = "Laura"};
+    person_t laura = {.name = "Laura"};
+    person_t jacob = {.name = "Jacob"};
     initTable();
     printTable();
 
@@ -52,18 +55,24 @@ int main()
     insertInTable(&kevin);
     insertInTable(&laura);
     insertInTable(&joe);
+    insertInTable(&jacob);
+
+
+    lookupInTable(&chris);
+    lookupInTable(&jacob);
 
     printTable();
     return 0;
 }
 //==================================================
-unsigned int hash ( char *name)
+unsigned int hash (char *name)
 {
     unsigned int checkSum = 0;
 
     while (*name != '\0')
     {
         checkSum += *name;
+        //checkSum *= checkSum;
         name++;
     }
 
@@ -76,7 +85,7 @@ bool insertInTable(person_t *personToInsert)
 
     if(hashTable[index] != NULL)
     {
-        printf("We have a collision! -> %s: %i\a\n", personToInsert->name, index);
+        printf("We have a collision! -> %s: %i\n", personToInsert->name, index);
         return false;       // We have a collision.
     }
     else
@@ -86,6 +95,22 @@ bool insertInTable(person_t *personToInsert)
     
     return true;
 
+}
+//==================================================
+void  lookupInTable (person_t *personToLookUp)
+{
+    unsigned int index = hash(personToLookUp->name);
+
+    if(hashTable[index] == personToLookUp)
+    {
+        printf("This person was found!: %s\n", personToLookUp->name);
+    }
+    else
+    {
+        printf("This person was not found!: %s\n", personToLookUp->name);
+
+    }
+    
 }
 //==================================================
 void initTable()
