@@ -33,12 +33,10 @@ unsigned int hash (char *name);
 bool collision(person_t *personToInsert);
 
 void insertInTable(person_t *personToInsert);
-
 void initTable();
-
 void printTable();
-
-void  lookupInTable (person_t *personToLookUp);
+void lookupInTable (person_t *personToLookUp);
+void deleteFromTable(person_t *personToDelete);
 
 int main()
 {
@@ -66,9 +64,14 @@ int main()
 
     lookupInTable(&chris);
     lookupInTable(&jacob);
+    
+
+    deleteFromTable(&david);
+    printTable();
     lookupInTable(&david);
 
-    ;
+
+    
     return 0;
 }
 //==================================================
@@ -118,7 +121,7 @@ void insertInTable(person_t *personToInsert)
         
         if(collision(personToInsert) == false)
         {
-            printf("\tNo more space in table\n);
+            printf("\tNo more space in table\n");
         }
 
 
@@ -128,6 +131,13 @@ void insertInTable(person_t *personToInsert)
         hashTable[index] = personToInsert;
     }
 
+}
+//==================================================
+void deleteFromTable(person_t *personToDelete)
+{
+    unsigned int index = hash(personToDelete->name);
+
+    hashTable[index] = NULL;
 
 }
 //==================================================
