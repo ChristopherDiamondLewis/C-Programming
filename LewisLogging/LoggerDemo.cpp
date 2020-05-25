@@ -10,7 +10,7 @@
 *
 *   @notes   - It easier to use the provided Makefile to compile & clean up if running multiple times.
 *               the commands being 'make' to compile all object files into an executable & 'make clean'
-*               which will delete all object files in currenty directory.                   
+*               which will delete all object files in current directory.                   
 *
 */
 
@@ -22,7 +22,7 @@ void demo(Logger &myLogger);
 /****************************************
 *   Main entry point for application.
 *       Just to test the different log levels & testing if log levels
-*       are displayed or written to the desired output stream coprrectly.
+*       are displayed or written to the desired output stream correctly.
 *
 *   Makes two different instances of the logger object, one with a file that log messages
 *       will be written to, and the other which will write directly to the console/terminal. 
@@ -33,7 +33,7 @@ void demo(Logger &myLogger);
 *****************************************/
 int main()
 {
-    Logger myLoggerFile("LoggerOut.log");   // Any log messages used by 'myLoggerFile' are written to the specified file.
+    Logger myLoggerFile("LoggerOut.txt");   // Any log messages used by 'myLoggerFile' are written to the specified file.
     Logger myLoggerTerminal;                // Any log messages used by 'myLoggerTerminal' are written to terminal/console.
 
 

@@ -28,7 +28,7 @@ Logger::Logger(const char* fileName)
 {
     priv_FilePtr = fopen(fileName , "w");
 
-    if(priv_FilePtr == nullptr)         
+    if(priv_FilePtr == nullptr)     // just in case file doesn't open.    
     {
         fprintf(stderr, "Error: File did not open, setting output to 'stderr'\n");
         priv_FilePtr = stderr;
