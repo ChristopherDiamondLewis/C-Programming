@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define TABLE_SIZE 10
+#define TABLE_SIZE 30
 
 struct person
 {
@@ -48,7 +48,10 @@ int main()
     person_t laura = {.name = "Laura", .age = 42};
     person_t jacob = {.name = "Jacob", .age =45};
     person_t david = {.name = "David", .age = 48};
-
+    person_t dolly = {.name = "Dolly", .age = 55};
+    person_t james = {.name = "James", .age = 66};
+    person_t marge = {.name = "Margaret", .age = 255};
+    person_t albert = {.name = "Albert", .age = 1000};
 
     initTable();
     printTable();    
@@ -60,18 +63,18 @@ int main()
     insertInTable(&joe);
     insertInTable(&jacob);
     insertInTable(&david);
+    insertInTable(&dolly);
+    insertInTable(&james);
+    insertInTable(&marge);
+    insertInTable(&albert);
     printTable();
 
-    lookupInTable(&chris);
-    lookupInTable(&jacob);
-    
-
-    deleteFromTable(&david);
+    deleteFromTable(&chris);
+    insertInTable(&albert);
     printTable();
-    lookupInTable(&david);
 
 
-    
+
     return 0;
 }
 //==================================================
@@ -92,67 +95,82 @@ unsigned int hash (char *name)
     return hashValue % TABLE_SIZE;
 }
 //==================================================
-bool collision(person_t *personToInsert)
-{
-    unsigned int index = hash(personToInsert->name);
-    bool fixedCollision = false;
-
-    while(index + 1 < TABLE_SIZE && fixedCollision == false)       // if we have a collision we will go from hashed index up to end of list till empty spot.
-    {
-        if(hashTable[index +1] == NULL)
-        {
-            hashTable[index +1] = personToInsert;
-            fixedCollision = true;
-
-        }
-
-        index++;
-    }
-
-    return fixedCollision;
-}
-//==================================================
 void insertInTable(person_t *personToInsert)
 {
-    unsigned int index = hash(personToInsert->name);
+    unsigned int index = hash(personToInsert->name);    // Calculates the hash.
+    unsigned int try   = 0;     
+    bool fixedCollision = false;             // Set to false if there is a collision, true if no collision.
 
-    if(hashTable[index] != NULL)
-    {
-        
-        if(collision(personToInsert) == false)
+    // will loop through each spot in table, linear probing method for fixing collisions.
+    for (int i = 0 ; i < TABLE_SIZE && fixedCollision == false ; i++) 
+    { 
+        try = (index + i) % TABLE_SIZE;      // have to account for collision, if no collision O(1) time insert.
+
+        if (hashTable[try] == NULL)
         {
-            printf("\tNo more space in table\n");
+            hashTable[try] = personToInsert;
+            fixedCollision = true;
         }
-
-
+        else
+        {
+            fixedCollision = false;
+        }
+        
     }
-    else
+
+    if(fixedCollision == false)
     {
-        hashTable[index] = personToInsert;
+        printf("\tNo more space in the table for: %s\n", personToInsert->name);
     }
-
+   
 }
 //==================================================
 void deleteFromTable(person_t *personToDelete)
 {
-    unsigned int index = hash(personToDelete->name);
+    unsigned int index = hash(personToDelete->name);    // Calculates the hash.
+    unsigned int try   = 0;     
+    bool deletedPerson = false;            
 
-    hashTable[index] = NULL;
+    
+    for (int i = 0 ; i < TABLE_SIZE && deletedPerson == false ; i++) 
+    { 
+        try = (index + i) % TABLE_SIZE;      
+
+        if (hashTable[try] == personToDelete)
+        {
+            hashTable[try] = NULL;
+            deletedPerson  = true;
+        }
+        else
+        {
+            deletedPerson = false;
+        }
+    }
 
 }
 //==================================================
 void  lookupInTable (person_t *personToLookUp)
 {
-    unsigned int index = hash(personToLookUp->name);
+    unsigned int index = hash(personToLookUp->name);    // Calculates the hash.
+    unsigned int try   = 0;     
+    bool personFound   = false;            
 
-    if(hashTable[index] == personToLookUp)
-    {
-        printf("This person was found!: %s\n", personToLookUp->name);
+    
+    for (int i = 0 ; i < TABLE_SIZE && personFound == false ; i++) 
+    { 
+        try = (index + i) % TABLE_SIZE;      
+
+        if (hashTable[try] == personToLookUp)
+        {
+            printf("This person was found: %s\n", personToLookUp->name);
+            personFound = true;
+        }
     }
-    else
+
+
+    if(personFound == false)
     {
         printf("This person was not found!: %s\n", personToLookUp->name);
-
     }
     
 }
