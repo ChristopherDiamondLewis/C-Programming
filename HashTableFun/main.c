@@ -30,7 +30,9 @@ person_t *hashTable[TABLE_SIZE];
 
 unsigned int hash (char *name);
 
-bool insertInTable(person_t *personToInsert);
+bool collision(person_t *personToInsert);
+
+void insertInTable(person_t *personToInsert);
 
 void initTable();
 
@@ -41,14 +43,17 @@ void  lookupInTable (person_t *personToLookUp);
 int main()
 {
     
-    person_t chris = {.name = "Christopher"};        // inline decleration.
-    person_t kimmy = {.name = "Kimberly"}; 
-    person_t kevin = {.name = "Kevin"}; 
-    person_t joe   = {.name = "Joeseph"};
-    person_t laura = {.name = "Laura"};
-    person_t jacob = {.name = "Jacob"};
+    person_t chris = {.name = "Christopher" , .age = 23};        // inline decleration.
+    person_t kimmy = {.name = "Kimberly", .age = 23}; 
+    person_t kevin = {.name = "Kevin", .age = 55}; 
+    person_t joe   = {.name = "Joe", .age = 15};
+    person_t laura = {.name = "Laura", .age = 42};
+    person_t jacob = {.name = "Jacob", .age =45};
+    person_t david = {.name = "David", .age = 48};
+
+
     initTable();
-    printTable();
+    printTable();    
 
     insertInTable(&chris);
     insertInTable(&kimmy);
@@ -56,44 +61,73 @@ int main()
     insertInTable(&laura);
     insertInTable(&joe);
     insertInTable(&jacob);
-
+    insertInTable(&david);
+    printTable();
 
     lookupInTable(&chris);
     lookupInTable(&jacob);
+    lookupInTable(&david);
 
-    printTable();
+    ;
     return 0;
 }
 //==================================================
 unsigned int hash (char *name)
 {
-    unsigned int checkSum = 0;
-
+    unsigned int hashValue = 0;
+    unsigned int length    = 0;
     while (*name != '\0')
     {
-        checkSum += *name;
-        //checkSum *= checkSum;
+        hashValue += *name;
+        
         name++;
+        length++;
     }
 
-    return checkSum % TABLE_SIZE;
+    hashValue *= length;
+
+    return hashValue % TABLE_SIZE;
 }
 //==================================================
-bool insertInTable(person_t *personToInsert)
+bool collision(person_t *personToInsert)
+{
+    unsigned int index = hash(personToInsert->name);
+    bool fixedCollision = false;
+
+    while(index + 1 < TABLE_SIZE && fixedCollision == false)       // if we have a collision we will go from hashed index up to end of list till empty spot.
+    {
+        if(hashTable[index +1] == NULL)
+        {
+            hashTable[index +1] = personToInsert;
+            fixedCollision = true;
+
+        }
+
+        index++;
+    }
+
+    return fixedCollision;
+}
+//==================================================
+void insertInTable(person_t *personToInsert)
 {
     unsigned int index = hash(personToInsert->name);
 
     if(hashTable[index] != NULL)
     {
-        printf("We have a collision! -> %s: %i\n", personToInsert->name, index);
-        return false;       // We have a collision.
+        
+        if(collision(personToInsert) == false)
+        {
+            printf("\tNo more space in table\n);
+        }
+
+
     }
     else
     {
         hashTable[index] = personToInsert;
     }
-    
-    return true;
+
 
 }
 //==================================================
@@ -118,7 +152,6 @@ void initTable()
     for ( int i = 0 ; i <  TABLE_SIZE ; i++ )
     {
         hashTable[i] = NULL;
-
     }
 }
 //==================================================
