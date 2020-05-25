@@ -20,7 +20,7 @@
 struct person
 {
     char *name;
-    int age;
+    int   age;
 };
 
 typedef struct person person_t;

@@ -1,5 +1,5 @@
 
-CC = clang 
+CC 	   = clang 
 CFLAGS = -pedantic 
 
 
