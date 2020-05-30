@@ -1,19 +1,17 @@
 /*
 *
 *	@author - Christopher Lewis
+*	@date   - 5/10/2020
 *
-*
-*	Just some linked list practice, nothing super special, gotta keep skills up in quarentine.
+*	Just some linked list practice, nothing super special.
 *       Made a library with some basic functions for Linked Lists.
 *
-*	Testing
+*	
 *
 */
 
 
 #include <stdio.h>
-
-
 #include "LinkedList.h"
 
 

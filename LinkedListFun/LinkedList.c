@@ -8,14 +8,18 @@
 
 node_t *makeNode(int value)
 {	
-	node_t *newNode = malloc(sizeof(node_t));
+	node_t *newNode = (node_t*)malloc(sizeof(node_t));
+
+	if ( newNode ==  NULL )
+	{
+		printf("Error: not enough memory!\n");
+		return -1;
+	}
 	
 	newNode->value = value;
 	newNode->next  = NULL;
 	
-	
 	return newNode;
-	
 }
 node_t *removeFront(node_t *head)
 {
