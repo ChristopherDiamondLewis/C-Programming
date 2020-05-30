@@ -106,7 +106,7 @@ class Logger
 *           the FILE pointer was pointing to.
 *           
 *       The desctructor is made virtual to gauarantee the object
-*               will be dstructed properly.
+*               will be destructed properly.
 *
 *       @reference - https://www.geeksforgeeks.org/virtual-destructor/
 *
