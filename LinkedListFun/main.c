@@ -19,7 +19,7 @@
 int main()
 {
 
-	srand(time(NULL));
+	srand(time(0));
 	
 	
 	node_t *head = NULL;
@@ -31,11 +31,6 @@ int main()
 		
 	}
 	
-	
-	printList(head);
-	
-	deleteFromIndex(head, 3);
-
 	printList(head);
 	
 	
