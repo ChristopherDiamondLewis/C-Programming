@@ -21,7 +21,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define LIST_SIZE 10000
+#define LIST_SIZE 25
 
 /**********************************
 *
