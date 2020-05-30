@@ -89,7 +89,7 @@ int listLength(node_t *head)
 void addToIndex(node_t *head, int index, int nodeValue)
 {
 
-	int counter = 0;
+	int counter = 0;	// To keep track of where we are in the list while we traverse.
 
 	node_t *newNode  = makeNode(nodeValue);
 	node_t *currNode = head;
@@ -108,7 +108,7 @@ void addToIndex(node_t *head, int index, int nodeValue)
 //==========================================================
 void deleteFromIndex(node_t *head, int index)
 {
-	int counter = 0;
+	int counter = 0;	// To keep track of where we are in the list while we traverse.
 
 	// need two traversals to keep track of previous node and current node.
 	node_t *current = head;
