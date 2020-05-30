@@ -19,5 +19,4 @@ LoggerDemo.o: LoggerDemo.cpp Logger.h
 	$(CC) $(CFLAGS) -c LoggerDemo.cpp
 
 clean:
-
 	rm -f *.o LoggerDemo
