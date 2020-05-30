@@ -1,0 +1,49 @@
+Logging Level: TRACE
+	Sat May 30 15:36:55 2020
+		This is a TRACE message!
+	Sat May 30 15:36:55 2020
+		This is a DEBUG message!
+	Sat May 30 15:36:55 2020
+		This is an INFO message!
+	Sat May 30 15:36:55 2020
+		This is a WARN message!
+	Sat May 30 15:36:55 2020
+		This is an ERROR message!
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: DEBUG
+	Sat May 30 15:36:55 2020
+		This is a DEBUG message!
+	Sat May 30 15:36:55 2020
+		This is an INFO message!
+	Sat May 30 15:36:55 2020
+		This is a WARN message!
+	Sat May 30 15:36:55 2020
+		This is an ERROR message!
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: INFO
+	Sat May 30 15:36:55 2020
+		This is an INFO message!
+	Sat May 30 15:36:55 2020
+		This is a WARN message!
+	Sat May 30 15:36:55 2020
+		This is an ERROR message!
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: WARN
+	Sat May 30 15:36:55 2020
+		This is a WARN message!
+	Sat May 30 15:36:55 2020
+		This is an ERROR message!
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: ERROR
+	Sat May 30 15:36:55 2020
+		This is an ERROR message!
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: FATAL
+	Sat May 30 15:36:55 2020
+		This is a FATAL message!
+Logging Level: OFF
