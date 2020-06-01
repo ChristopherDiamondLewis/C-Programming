@@ -116,12 +116,11 @@ void deleteFromIndex(node_t *head, int index)
 
 	while (current->next != NULL && counter < index)
 	{
-
 		prev 	= current;
 		current = current->next;
 		counter++;
 	}
-	if ( counter == index )
+	if ( counter < index )
 	{
 		printf("There are less than %i nodes in the list\n", index);
 	}
@@ -136,7 +135,7 @@ void deleteFromIndex(node_t *head, int index)
 void appendList(node_t **head, int value)
 {
 
-	node_t *newNode = makeNode(value);
+	node_t *newNode   = makeNode(value);
 	node_t *traversal = *head;
 
 	if (*head == NULL)

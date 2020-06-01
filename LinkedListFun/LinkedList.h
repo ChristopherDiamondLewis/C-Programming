@@ -21,7 +21,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define LIST_SIZE 25
+#define LIST_SIZE 29
 
 /**********************************
 *
@@ -155,11 +155,10 @@ typedef struct node node_t;	// some abstractions so we do not have to type 'stru
 	void deleteFromIndex(node_t *head, int index);
 
 /*******************************************
-*	Adds to the front of the list changing the head of the list
-*		appropriately.
+*	Adds to the end of the list.
 *
 *	@param - head, of type 'node_t', this is a double pointer so that the function can change it during exectution.
-*	@param - value, of type 'int' used to make a new node that will be the new head of the list.
+*	@param - value, of type 'int' used to make a new node that will be inserted at the end of the list.
 *
 *	@return - function is void, no return value.
 ********************************************/
