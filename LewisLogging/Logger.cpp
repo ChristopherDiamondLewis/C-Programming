@@ -1,7 +1,7 @@
 /*
 *
 *   @author - Christopher Lewis
-*
+*   @date   - 5/17/2020
 *   
 *   This is the implemention file for the "Logger" class.
 *       Please refer to "Logger.h" for explanation of each function 

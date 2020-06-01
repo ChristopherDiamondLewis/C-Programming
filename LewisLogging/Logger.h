@@ -1,6 +1,7 @@
 /*
 *
 *   @author - Christopher Lewis
+*   @date   - 5/17/2020
 *
 *       This is the header file for the Logger class.
 *       It robustly explains the clases functions/variables, their inputs and

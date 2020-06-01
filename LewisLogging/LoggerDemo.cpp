@@ -1,7 +1,7 @@
 /*
 *   @author  - Christopher Lewis
-*   @Created - 5/17/2020
-*   
+*   @date    - 5/17/2020
+*       
 *
 *   LoggerDemo meant to show the different levels the logger should be able to write to
 *       as well as show the loggers ability to write to a file or the terminal.
