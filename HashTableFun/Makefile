@@ -1,10 +1,16 @@
 
 CC 	   = clang 
-CFLAGS = -pedantic 
+CFLAGS = -Wall -Wextra -pedantic 
 
 
-all: main.o
-	$(CC) $(CFLAGS)	main.c -o main
+all: main.o HashTable.o
+	$(CC) $(CFLAGS)	main.o HashTable.o -o main
+
+HashTable.o: HashTable.c HashTable.h
+	$(CC) $(CFLAGS) -c HashTable.c
+
+main.o: main.c HashTable.h 
+	$(CC) $(CFLAGS) -c main.c
 
 
 clean:
