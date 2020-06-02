@@ -29,6 +29,7 @@ int main()
     person_t james = {.name = "James", .age = 66};
     person_t marge = {.name = "Margaret", .age = 255};
     person_t albert = {.name = "Albert", .age = 1000};
+    person_t jessie = {.name = "Jessie", .age = 26};
 
     initTable();
     printTable();    
@@ -44,11 +45,10 @@ int main()
     insertInTable(&james);
     insertInTable(&marge);
     insertInTable(&albert);
-    printTable();
+    insertInTable(&jessie);
 
-    deleteFromTable(&chris);
-    
     printTable();
+    
 
 
 

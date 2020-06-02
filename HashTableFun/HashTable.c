@@ -2,7 +2,7 @@
 *   @author - Christopher Lewis 
 *   @date   - 5/25/2020
 *   
-*   This is the implementation file for the hash table 
+*   This is the header file for the hash table. 
 *
 */
 

@@ -2,7 +2,7 @@
 *   @author - Christopher Lewis 
 *   @date   - 5/25/2020
 *   
-*   This is the header file for the hashtable, where I explain all the functions, their purpose,
+*   This is the implementation file for the hashtable, where I explain all the functions, their purpose,
 *       inputs & outputs. 
 *   This is also where the TABLE_SIZE is defined as well as the values for the 'person_t' type
 *       That actually makes up each element in the Hash Table.
